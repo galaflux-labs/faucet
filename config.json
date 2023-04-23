@@ -1,0 +1,64 @@
+{
+  "useTemplate": true,
+  "template": "increment",
+  "name": "faucet",
+  "developer": {
+    "archwayd": {
+      "docker": false
+    },
+    "deployments": [
+      {
+        "project": "faucet",
+        "type": "instantiate",
+        "chainId": "constantine-2",
+        "codeId": 693,
+        "txhash": "C5004B370F1C049CD5E103E7997F0B4C52868D7B3C06A3A0FFE6721AF25A44FA",
+        "address": "archway15qpm4ve6klldv2s4hk5vstje8ssvuamv7e2x6q7sx4avqc2rw9ds5yqwtf",
+        "admin": "archway18arcrs9ntn3jspld3ah4kgu6shpn807u3nf72h"
+      },
+      {
+        "project": "faucet",
+        "type": "store",
+        "chainId": "constantine-2",
+        "codeId": 693,
+        "txhash": "17B9A9D39BEBE5E2720D8C15022F0E1E8FAE5C1DF39A6B25324760F3ACBD84BF"
+      }
+    ],
+    "scripts": {
+      "test": "cargo unit-test",
+      "build": "cargo build",
+      "optimize": "cargo run-script optimize",
+      "wasm": "cargo wasm",
+      "query": "archwayd query wasm",
+      "tx": "archwayd tx wasm execute"
+    }
+  },
+  "network": {
+    "name": "constantine",
+    "chainId": "constantine-2",
+    "type": "testnet",
+    "fees": {
+      "feeDenom": "uconst"
+    },
+    "gas": {
+      "prices": "0.002uconst",
+      "mode": "auto",
+      "adjustment": "1.2"
+    },
+    "wasm": {
+      "bech32Hrp": "archway",
+      "archwayd": "0.1.0",
+      "configDir": ".archway",
+      "binary": "archwayd"
+    },
+    "urls": {
+      "rpc": {
+        "url": "https://rpc.constantine-2.archway.tech",
+        "port": 443
+      },
+      "faucets": [
+        "https://faucet.constantine-2.archway.tech"
+      ]
+    }
+  }
+}
